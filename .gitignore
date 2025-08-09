@@ -1,0 +1,96 @@
+##############
+# macOS
+##############
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+.Spotlight-V100
+.Trashes
+
+##############
+# Python
+##############
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+
+# Distribution / packaging
+build/
+dist/
+pip-wheel-metadata/
+*.egg-info/
+.eggs/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+##############
+# Testing / coverage
+##############
+.pytest_cache/
+.cache/
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+coverage.xml
+nosetests.xml
+*.cover
+*.py,cover
+.hypothesis/
+pytestdebug.log
+
+##############
+# Type checkers / linters
+##############
+.mypy_cache/
+.dmypy.json
+dmypy.json
+.pyre/
+.pytype/
+
+##############
+# Editors / IDE
+##############
+.vscode/
+.idea/
+*.swp
+*.swo
+
+##############
+# Logs / temp files
+##############
+*.log
+logs/
+tmp/
+temp/
+
+##############
+# Selenium / WebDriver artifacts
+##############
+drivers/
+reports/
+screenshots/
+
+##############
+# Environment files
+##############
+.env
+.env.*
+*.env
+
+
