@@ -1,5 +1,5 @@
-department_id,department_name,location
-1,IT,New York
-2,Human Resources,Chicago
-3,Finance,San Francisco
+department_id,department_name,location,employee_count
+1,IT,New York,2
+2,Human Resources,Chicago,1
+3,Finance,San Francisco,0
 

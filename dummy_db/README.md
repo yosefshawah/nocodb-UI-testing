@@ -17,7 +17,7 @@ This directory contains CSV templates for a simple dummy database to support loc
 ## Minimal schema
 
 - roles.csv: role_id,role_name,role_description
-- departments.csv: department_id,department_name,location
+- departments.csv: department_id,department_name,location,employee_count
 - employees.csv: employee_id,first_name,last_name,email,hire_date,salary,role_id,department_id
 
 You can add more CSV files or columns as your tests require.
