@@ -29,7 +29,7 @@ def sidebar_page(driver):
 @pytest.fixture
 def logged_in_driver(driver, login_page):
     """Fixture to provide a driver that's already logged in"""
-    from config.test_config import TEST_EMAIL, TEST_PASSWORD
+    from config.config import TEST_EMAIL, TEST_PASSWORD
     
     login_page.navigate_to()
     login_page.login(TEST_EMAIL, TEST_PASSWORD)

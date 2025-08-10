@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 from .base_page import BasePage
-from config.test_config import LOGIN_URL, TEST_EMAIL, TEST_PASSWORD
+from config.config import LOGIN_URL, TEST_EMAIL, TEST_PASSWORD
 
 
 class LoginPage(BasePage):
