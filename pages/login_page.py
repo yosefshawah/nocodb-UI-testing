@@ -1,10 +1,10 @@
 from selenium.webdriver.common.by import By
 from .base_page import BasePage
-from config.test_config import LOGIN_URL
+from config.test_config import LOGIN_URL, TEST_EMAIL, TEST_PASSWORD
 
 
 class LoginPage(BasePage):
-    """Page object for the NocoDB login page"""
+    """Page object for the NocoDB login page with method chaining support"""
     
     # Locators
     EMAIL_INPUT = (By.XPATH, '//input[@placeholder="Enter your work email"]')
@@ -18,24 +18,42 @@ class LoginPage(BasePage):
     def navigate_to(self):
         """Navigate to the login page"""
         self.driver.get(self.url)
+        return self
     
     def enter_email(self, email):
         """Enter email in the email input field"""
         self.send_keys_to_element(*self.EMAIL_INPUT, email)
+        return self
     
     def enter_password(self, password):
         """Enter password in the password input field"""
         self.send_keys_to_element(*self.PASSWORD_INPUT, password)
+        return self
     
     def click_login_button(self):
         """Click the login button"""
         self.click_element(*self.LOGIN_BUTTON)
+        return self
     
     def login(self, email, password):
         """Complete login process with email and password"""
         self.enter_email(email)
         self.enter_password(password)
         self.click_login_button()
+        return self
+    
+    def login_as_valid_user(self, email=None, password=None):
+        """Login as valid user and return sidebar page for chaining"""
+        from .sidebar_page import SidebarPage
+        
+        email = email or TEST_EMAIL
+        password = password or TEST_PASSWORD
+        
+        self.navigate_to()
+        self.login(email, password)
+        self.wait_for_login_completion()
+        
+        return SidebarPage(self.driver)
     
     def is_login_page(self):
         """Check if we're on the login page"""
@@ -45,4 +63,5 @@ class LoginPage(BasePage):
     def wait_for_login_completion(self):
         """Wait for login to complete and redirect to dashboard"""
         old_url = self.get_current_url()
-        return self.wait_for_url_change(old_url, timeout=15)
+        success = self.wait_for_url_change(old_url, timeout=15)
+        return self if success else None
