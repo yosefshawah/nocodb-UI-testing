@@ -1,7 +1,7 @@
 import pytest
 from utils.driver_manager import DriverManager
 from pages.login_page import LoginPage
-from pages.dashboard_page import DashboardPage
+from pages.sidebar_page import SidebarPage
 
 
 @pytest.fixture(scope="function")
@@ -19,9 +19,11 @@ def login_page(driver):
 
 
 @pytest.fixture
-def dashboard_page(driver):
-    """Fixture to provide DashboardPage instance"""
-    return DashboardPage(driver)
+def sidebar_page(driver):
+    """Fixture to provide SidebarPage instance"""
+    return SidebarPage(driver)
+
+
 
 
 @pytest.fixture

@@ -14,4 +14,4 @@ LONG_TIMEOUT = 15
 SHORT_TIMEOUT = 5
 
 # Test data
-TEST_BASE_NAME = "test_base"
+TEST_BASE_NAME = "company-x"

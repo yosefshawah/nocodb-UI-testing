@@ -12,11 +12,20 @@ Icon?
 # Python
 ##############
 __pycache__/
+*/__pycache__/
+pages/__pycache__/
+tests/__pycache__/
+config/__pycache__/
+utils/__pycache__/
 *.py[cod]
 *$py.class
 *.pyo
 *.pyd
-
+pages/__pycache__
+tests/__pycache__
+utils/__pycache__
+utils/__pycache__
+__pycache__/
 # Distribution / packaging
 build/
 dist/
@@ -89,8 +98,8 @@ screenshots/
 ##############
 # Environment files
 ##############
-.env
-.env.*
+.env.env.*
 *.env
-
+__pycache__/
+__pycache__/conftest.cpython-313-pytest-8.4.1.pyc
 
