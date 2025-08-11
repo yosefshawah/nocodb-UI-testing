@@ -75,11 +75,11 @@ dmypy.json
 ##############
 # Editors / IDE
 ##############
-.vscode/
+
 .idea/
 *.swp
 *.swo
-
+noco.db
 ##############
 # Logs / temp files
 ##############
