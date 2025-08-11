@@ -1,0 +1,9 @@
+{
+  "name": "Debug pytest",
+  "type": "python",
+  "request": "launch",
+  "module": "pytest",
+  "args": ["-s", "-v", "tests/test_ui.py::test_your_case"],
+  "console": "integratedTerminal",
+  "justMyCode": false
+}
