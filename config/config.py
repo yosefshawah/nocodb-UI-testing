@@ -6,6 +6,8 @@ TEST_PASSWORD = "12341234"
 
 # URLs
 BASE_URL = "http://52.18.93.49:8080/"
+# BASE_URL = "http://localhost:8080/"
+
 LOGIN_URL = f"{BASE_URL}dashboard/"
 
 # Timeouts
