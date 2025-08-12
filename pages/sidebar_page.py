@@ -1,7 +1,6 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from .base_page import BasePage
-from .employee_form import EmployeeForm
 
 
 class SidebarPage(BasePage):
@@ -10,10 +9,7 @@ class SidebarPage(BasePage):
     # Locators
     SIDEBAR_BASE_BUTTON = (By.CLASS_NAME, "active-base")
     COMPANY_X_SPAN = (By.XPATH, "//span[text()='company-x']")
-    EMPLOYEES_TABLE = (By.CSS_SELECTOR, '[data-testid="nc-tbl-title-employees"]')
     SIDEBAR_VIEW_TITLE = (By.CSS_SELECTOR, '[data-testid="sidebar-view-title"]')
-    ADD_EMPLOYEE_DIV = (By.XPATH, "//div[contains(text(), 'add-employee')]")
-    SIDEBAR_CLOSE_BUTTON = (By.CLASS_NAME, "nc-sidebar-left-toggle-icon")
     
     def __init__(self, driver):
         super().__init__(driver)
@@ -31,24 +27,14 @@ class SidebarPage(BasePage):
         except Exception as e:
             print(f"Could not find or click 'company-x': {e}")
             return None
-    
-    def click_employees_table(self):
-        """Click on the employees table"""
-        self.click_element(*self.EMPLOYEES_TABLE)
-        return self
+   
     
     def click_sidebar_view_title(self):
         """Click on the sidebar view title"""
         self.click_element(*self.SIDEBAR_VIEW_TITLE)
         return self
     
-    def click_add_employee_div(self):
-        """Click the add-employee div, close sidebar, and return the employee form page"""
-        self.click_element(*self.ADD_EMPLOYEE_DIV)
-        # Close the sidebar to prevent it from blocking the form
-        self.click_element(*self.SIDEBAR_CLOSE_BUTTON)
-        return EmployeeForm(self.driver)
-    
+
 
     
     def navigate_to_company_x(self):
@@ -90,11 +76,7 @@ class SidebarPage(BasePage):
         from .table_page import TablePage
         return TablePage(self.driver)
     
-    def go_to_employees_table(self):
-        """Navigate to company-x and then click employees table"""
-        self.go_to_company_x()
-        self.click_employees_table()
-        return self
+
     
   
     
