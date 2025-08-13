@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 from .base_page import BasePage
-from config.config import LOGIN_URL, TEST_EMAIL, TEST_PASSWORD
+from config.config import BASE_URL, TEST_EMAIL, TEST_PASSWORD
 
 
 class LoginPage(BasePage):
@@ -13,7 +13,7 @@ class LoginPage(BasePage):
     
     def __init__(self, driver):
         super().__init__(driver)
-        self.url = LOGIN_URL
+        self.url = BASE_URL
     
     def navigate_to(self):
         """Navigate to the login page"""

@@ -44,3 +44,21 @@ class TablePage(BasePage):
         create_button = self.wait.until(EC.element_to_be_clickable(self.CREATE_TABLE_BUTTON))
         create_button.click()
         return self
+    
+    def wait_for_table_in_list(self, table_name):
+        """Wait until the newly created table appears in the table list"""
+        # Locate all table titles
+        table_locator = (By.CSS_SELECTOR, ".nc-tbl-title span")
+        
+        # Wait until at least one span element appears
+        table_elements = self.wait.until(EC.presence_of_all_elements_located(table_locator))
+        
+        # Find the one whose text matches the table_name
+        matching_table = None
+        for elem in table_elements:
+            if elem.text.strip() == table_name:
+                matching_table = elem
+                break
+        
+        assert matching_table is not None, f"New table '{table_name}' not found in the list"
+        return self
