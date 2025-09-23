@@ -44,7 +44,7 @@ def logged_in_driver(driver, login_page):
 # --- Remote DB reset + health-check fixtures ---
 SSH_HOST = os.environ.get("SSH_HOST", "ec2-52-18-93-49.eu-west-1.compute.amazonaws.com")
 SSH_USER = os.environ.get("SSH_USER", "ubuntu")
-SSH_KEY_FILE = os.environ.get("SSH_KEY_FILE", "/Users/shawahyosef/Desktop/nocodb-final-project/nocodb-final-yosef.pem")
+SSH_KEY_FILE =  os.environ.get("KEY_FILE")or os.environ.get("EC2_SSH_KEY")  or "/Users/shawahyosef/Desktop/nocodb-final-project/nocodb-final-yosef.pem"
 RESET_SCRIPT = os.environ.get("RESET_SCRIPT", "/home/ubuntu/app/scripts/reset_db.sh")
 
 
@@ -84,6 +84,22 @@ def _should_reset_remote_db() -> bool:
 
 
 def reset_remote_db():
+    # Debug SSH configuration
+    print(f"[debug] SSH_HOST: {SSH_HOST}")
+    print(f"[debug] SSH_USER: {SSH_USER}")
+    print(f"[debug] SSH_KEY_FILE: {SSH_KEY_FILE}")
+    print(f"[debug] RESET_SCRIPT: {RESET_SCRIPT}")
+    
+    # Validate SSH key file exists
+    if not SSH_KEY_FILE or not os.path.exists(SSH_KEY_FILE):
+        raise FileNotFoundError(f"SSH key file not found: {SSH_KEY_FILE}")
+    
+    # Check key file permissions
+    import stat
+    key_stat = os.stat(SSH_KEY_FILE)
+    key_perms = stat.filemode(key_stat.st_mode)
+    print(f"[debug] SSH key permissions: {key_perms}")
+    
     subprocess.run([
         "ssh",
         "-o", "StrictHostKeyChecking=no",
@@ -101,6 +117,9 @@ def service_up():
     print(f"[debug] Environment BASE_URL: {os.getenv('BASE_URL')}")
     print(f"[debug] Environment NOCODB_URL: {os.getenv('NOCODB_URL')}")
     print(f"[debug] Environment EC2_HOST: {os.getenv('EC2_HOST')}")
+    print(f"[debug] Environment KEY_FILE: {os.getenv('KEY_FILE')}")
+    print(f"[debug] Environment SSH_KEY_FILE: {os.getenv('SSH_KEY_FILE')}")
+    print(f"[debug] Final SSH_KEY_FILE: {SSH_KEY_FILE}")
     
     t0 = time.time()
     _wait_healthy(BASE_URL)
