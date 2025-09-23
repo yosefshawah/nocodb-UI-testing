@@ -56,10 +56,18 @@ class DriverManager:
         if enable_performance_logging:
             chrome_options.set_capability('goog:loggingPrefs', {'performance': 'ALL'})
         
-        # Headless mode detection
-        if DriverManager._should_run_headless():
+        # Headless mode detection with debugging
+        is_headless = DriverManager._should_run_headless()
+        is_ci = DriverManager._is_ci_environment()
+        headless_env = os.getenv('HEADLESS', '')
+        
+        print(f"[debug] CI environment detected: {is_ci}")
+        print(f"[debug] HEADLESS env var: '{headless_env}'")
+        print(f"[debug] Should run headless: {is_headless}")
+        
+        if is_headless:
             chrome_options.add_argument("--headless")
-            print("🤖 Running in headless mode (CI environment detected)")
+            print("🤖 Running in headless mode")
         else:
             print("🖥️ Running in windowed mode")
         

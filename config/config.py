@@ -8,9 +8,18 @@ load_dotenv()
 TEST_EMAIL = "admin@example.com"
 TEST_PASSWORD = "12341234"
 
-# URLs
-BASE_URL = "http://52.18.93.49:8080/"
-BASE_URL = os.getenv("BASE_URL")
+# URLs - Check multiple environment variable names for CI compatibility
+BASE_URL = (
+    os.getenv("BASE_URL") or           # Primary env var
+    os.getenv("NOCODB_URL") or         # CI environment uses this
+    os.getenv("EC2_HOST") or           # EC2 host environment variable
+    "http://52.18.93.49:8080/"         # Default fallback
+)
+
+# Ensure BASE_URL ends with /
+if not BASE_URL.endswith('/'):
+    BASE_URL = BASE_URL + '/'
+
 LOGIN_URL = f"{BASE_URL}dashboard/"
 
 # Timeouts

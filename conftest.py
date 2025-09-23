@@ -49,6 +49,9 @@ RESET_SCRIPT = os.environ.get("RESET_SCRIPT", "/home/ubuntu/app/scripts/reset_db
 
 
 def _wait_healthy(url: str, timeout: int = 40):
+    if not url:
+        raise ValueError("URL cannot be None or empty")
+    
     t0 = time.time()
     if not url.endswith('/'):
         url = url + '/'
@@ -93,6 +96,12 @@ def reset_remote_db():
 
 @pytest.fixture(scope="session", autouse=True)
 def service_up():
+    # Debug information for CI
+    print(f"[debug] BASE_URL from config: {BASE_URL}")
+    print(f"[debug] Environment BASE_URL: {os.getenv('BASE_URL')}")
+    print(f"[debug] Environment NOCODB_URL: {os.getenv('NOCODB_URL')}")
+    print(f"[debug] Environment EC2_HOST: {os.getenv('EC2_HOST')}")
+    
     t0 = time.time()
     _wait_healthy(BASE_URL)
     print(f"[timing] Service health check: {time.time() - t0:.2f}s")
