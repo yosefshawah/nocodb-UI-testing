@@ -17,22 +17,34 @@ class LoginPage(BasePage):
     
     def navigate_to(self):
         """Navigate to the login page"""
+        self.log_action(f"Navigating to login page: {self.url}")
         self.driver.get(self.url)
+        self.assert_on_page("dashboard", "Login Page")
+        self.assert_element_present(*self.EMAIL_INPUT, "Email input field")
+        self.assert_element_present(*self.PASSWORD_INPUT, "Password input field")
+        self.log_success("Successfully navigated to login page")
         return self
     
     def enter_email(self, email):
         """Enter email in the email input field"""
+        self.log_action(f"Entering email: {email}")
         self.send_keys_to_element(*self.EMAIL_INPUT, email)
+        self.log_success("Email entered successfully")
         return self
     
     def enter_password(self, password):
         """Enter password in the password input field"""
+        self.log_action("Entering password")
         self.send_keys_to_element(*self.PASSWORD_INPUT, password)
+        self.log_success("Password entered successfully")
         return self
     
     def click_login_button(self):
         """Click the login button"""
+        self.log_action("Clicking login button")
+        self.assert_element_present(*self.LOGIN_BUTTON, "Login button")
         self.click_element(*self.LOGIN_BUTTON)
+        self.log_success("Login button clicked")
         return self
     
     def login(self, email, password):
@@ -62,6 +74,12 @@ class LoginPage(BasePage):
     
     def wait_for_login_completion(self):
         """Wait for login to complete and redirect to dashboard"""
+        self.log_action("Waiting for login to complete")
         old_url = self.get_current_url()
         success = self.wait_for_url_change(old_url, timeout=15)
+        if success:
+            self.log_success("Login completed successfully - redirected to dashboard")
+            self.log_page_load("Dashboard")
+        else:
+            self.logger.error("Login did not complete within timeout")
         return self if success else None
