@@ -138,6 +138,46 @@ class SidebarPage(BasePage):
         self.log_success("Clicked 'Duplicate Base' button")
         return self
     
+    def click_roles_table(self):
+        """Click on the roles table in the sidebar (by data-testid)."""
+        self.log_action("Clicking roles table in sidebar")
+        roles_btn = self.wait.until(
+            EC.element_to_be_clickable((By.CSS_SELECTOR, '[data-testid="nc-tbl-title-roles"]'))
+        )
+        roles_btn.click()
+        self.log_success("Clicked roles table")
+        return self
+
+    def click_create_view_div(self):
+        """Click the SVG icon for 'Create View' (class 'nc-icon nc-create-view-btn-icon')."""
+        self.log_action("Clicking 'Create View' SVG icon")
+        create_view_svg = self.wait.until(
+            EC.element_to_be_clickable((By.CSS_SELECTOR, 'svg.nc-icon.nc-create-view-btn-icon'))
+        )
+        create_view_svg.click()
+        self.log_success("Clicked 'Create View' SVG icon")
+        return self
+
+    def click_gallery_view_option(self):
+        """Click the gallery view option in the sidebar (by data-testid)."""
+        self.log_action("Clicking gallery view option in sidebar")
+        gallery_view_btn = self.wait.until(
+            EC.element_to_be_clickable((By.CSS_SELECTOR, '[data-testid="sidebar-view-create-gallery"]'))
+        )
+        gallery_view_btn.click()
+        self.log_success("Clicked gallery view option")
+        return self
+
+    def click_create_view_button(self):
+        """Click the button named 'Create view'."""
+        self.log_action("Clicking 'Create view' button")
+        create_view_btn = self.wait.until(
+            EC.element_to_be_clickable((By.XPATH, "//button[contains(., 'Create view')]"))
+        )
+        create_view_btn.click()
+        self.log_success("Clicked 'Create view' button")
+        return self
+    
     
     def wait_for_sidebar_load(self):
         """Wait for sidebar to load completely"""
