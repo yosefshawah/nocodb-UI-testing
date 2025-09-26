@@ -1,0 +1,4 @@
+role_id,role_name,role_description,employees
+1,Manager,Oversees team operations,0
+2,Developer,Builds and maintains software,2
+3,HR Specialist,Manages employee relations,1

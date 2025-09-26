@@ -46,6 +46,9 @@ class DriverManager:
         """
         chrome_options = Options()
         
+        # Always use incognito mode for clean browser storage
+        chrome_options.add_argument("--incognito")
+        
         # Performance optimizations
         chrome_options.add_argument("--no-sandbox")
         chrome_options.add_argument("--disable-dev-shm-usage")

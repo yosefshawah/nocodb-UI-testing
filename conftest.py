@@ -6,6 +6,8 @@ import subprocess
 import time
 import os
 import requests
+import sys
+from pathlib import Path
 from config.config import BASE_URL
 
 
@@ -110,6 +112,30 @@ def reset_remote_db():
     ], check=True)
 
 
+def _should_reset_local_db() -> bool:
+    """Decide whether to run local DB reset based on environment.
+    
+    Returns True if BASE_URL points to localhost/127.0.0.1, False otherwise.
+    """
+    lowered = (BASE_URL or "").lower()
+    return any(k in lowered for k in ("localhost", "127.0.0.1", "0.0.0.0"))
+
+
+def reset_local_db():
+    """Stop the NocoDB container, reset the local database, then start the container again before each test."""
+    import os
+    print("[debug] Stopping NocoDB container...")
+    os.system("docker compose stop noco")
+    script_path = os.path.join(os.path.dirname(__file__), 'scripts', 'reset_local_db.sh')
+    print(f"[debug] Running local reset script: {script_path}")
+    exit_code = os.system(script_path)
+    print(f"[debug] Local database reset script finished with exit code {exit_code}")
+    if exit_code != 0:
+        raise RuntimeError(f"reset_local_db.sh failed with exit code {exit_code}")
+    print("[debug] Starting NocoDB container...")
+    os.system("docker compose start noco")
+
+
 @pytest.fixture(scope="session", autouse=True)
 def service_up():
     # Debug information for CI
@@ -129,11 +155,22 @@ def service_up():
 
 @pytest.fixture(autouse=True)
 def reset_db_before_each_test(service_up, request: pytest.FixtureRequest):
-    if _should_reset_remote_db():
-        t_reset = time.time()
+    t_reset = time.time()
+    
+    if _should_reset_local_db():
+        # Reset local database when running against localhost
+        print(f"[debug] Running local database reset for {request.node.nodeid}")
+        reset_local_db()
+        _wait_healthy(BASE_URL)
+        print(f"[timing] {request.node.nodeid} local reset+health: {time.time() - t_reset:.2f}s")
+    elif _should_reset_remote_db():
+        # Reset remote database when running against remote server
+        print(f"[debug] Running remote database reset for {request.node.nodeid}")
         reset_remote_db()
         _wait_healthy(BASE_URL)
-        print(f"[timing] {request.node.nodeid} reset+health: {time.time() - t_reset:.2f}s")
+        print(f"[timing] {request.node.nodeid} remote reset+health: {time.time() - t_reset:.2f}s")
+    else:
+        print(f"[debug] No database reset configured for {request.node.nodeid}")
 
     t_test = time.time()
     yield

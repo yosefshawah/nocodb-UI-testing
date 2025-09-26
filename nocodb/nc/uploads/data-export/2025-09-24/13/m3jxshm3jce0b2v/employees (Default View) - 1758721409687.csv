@@ -1,0 +1,39 @@
+first_name,last_name,email,hire_date,salary,departments,roles,experience
+Qasim,Wilson,qasim.wilson@company.com,2025-08-10,120000,IT,Mobile Developer,with 9 years of experience specializing in Mobile Developer and building scalable systems.
+Rosa,Rivera,rosa.rivera@company.com,2025-08-10,70000,IT,Backend Developer,"bringing 5 years as a Backend Developer, focusing on performance optimization and delivery."
+Rosa,Nelson,rosa.nelson@company.com,2025-08-10,60000,IT,QA Engineer,with 2 years of experience specializing in QA Engineer and building scalable systems.
+Gabriel,Flores,gabriel.flores@company.com,2024-01-15,150000,Product Management,Product Manager,"over 12 years in Project Manager, contributing to cloud migration and system design."
+Ian,Flores,ian.flores@company.com,2023-05-12,85000,IT,Backend Developer,"over 13 years in Backend Developer, contributing to cloud migration and system design."
+Bob,Roberts,bob.roberts@company.com,2024-01-15,60000,IT,Devops Engineer,"bringing 5 years as a DevOps Engineer, focusing on performance optimization and delivery."
+Helena,Martinez,helena.martinez@company.com,2024-01-15,100000,IT,Cloud Engineer,"over 4 years in cloud, contributing to cloud migration and system design."
+Yara,Anderson,yara.anderson@company.com,2025-08-10,150000,IT,Devops Engineer,"more than 16 years in DevOps Engineer, skilled in modern frameworks and agile practices."
+Helena,Campbell,helena.campbell@company.com,2022-11-20,65000,Product Management,Product Manager,"bringing 9 years as a Project Manager, focusing on performance optimization and delivery."
+Daisy,Miller,daisy.miller@company.com,2024-01-15,60000,IT,Frontend Developer,"bringing 10 years as a Frontend Developer, focusing on performance optimization and delivery."
+George,Lee,george.lee@company.com,2023-05-12,85000,IT,data engineer,"bringing 8 years as a Data Scientist, focusing on performance optimization and delivery."
+Jade,Martin,jade.martin@company.com,2025-08-10,80000,IT,Cloud Engineer,"over 11 years in Cloud Engineer, contributing to cloud migration and system design."
+Noah,Moore,noah.moore@company.com,2022-11-20,65000,IT,Backend Developer,"worked 15 years as a Backend Developer, managing teams and improving workflows."
+Helena,Martin,helena.martin@company.com,2023-05-12,85000,IT,Backend Developer,"bringing 6 years as a Backend Developer, focusing on performance optimization and delivery."
+Alice,Ramirez,alice.ramirez@company.com,2025-08-10,90000,IT,Frontend Developer,"over 6 years in Frontend Developer, contributing to cloud migration and system design."
+Rachel,Roberts,rachel.roberts@company.com,2023-05-12,85000,IT,Mobile Developer,"over 19 years in Mobile Developer, contributing to cloud migration and system design."
+Bella,King,bella.king@company.com,2023-05-12,85000,IT,Mobile Developer,"more than 5 years in Mobile Developer, skilled in modern frameworks and agile practices."
+Julia,Clark,julia.clark@company.com,2022-11-20,65000,Human Resources,HR Specialist,"worked 12 years as a Recruiter, managing teams and improving workflows."
+Khalid,Scott,khalid.scott@company.com,2024-01-15,60000,IT,Frontend Developer,having 14 years background in Frontend Developer with expertise in microservices and team collaboration.
+Umar,White,umar.white@company.com,2025-08-10,190000,IT,data engineer,"bringing 19 years as a Data Scientist, focusing on performance optimization and delivery."
+Lina,Allen,lina.allen@company.com,2022-11-20,65000,IT,Frontend Developer,"more than 11 years in Frontend Developer, skilled in modern frameworks and agile practices."
+Uma,Nelson,uma.nelson@company.com,2025-08-10,200000,Product Management,Product Manager,"bringing 12 years as a Project Manager, focusing on performance optimization and delivery."
+Umar,Mitchell,umar.mitchell@company.com,2024-01-15,60000,IT,data engineer,having 20 years background in Data Scientist with expertise in microservices and team collaboration.
+Alice,Hernandez,alice.hernandez@company.com,2022-11-20,65000,Human Resources,HR Specialist,with 15 years of experience specializing in Recruiter and building scalable systems.
+Paula,Nelson,paula.nelson@company.com,2025-08-10,130000,IT,Cloud Engineer,with 7 years of experience specializing in Cloud Engineer and building scalable systems.
+Xander,Wilson,xander.wilson@company.com,2022-11-20,65000,Product Management,Product Manager,"more than 1 years in Tech Lead, skilled in modern frameworks and agile practices."
+Kevin,Nguyen,kevin.nguyen@company.com,2025-08-10,60000,IT,Devops Engineer,"more than 5 years in DevOps Engineer, skilled in modern frameworks and agile practices."
+Charlie,King,charlie.king@company.com,2023-05-12,85000,IT,QA Engineer,having 15 years background in QA Engineer with expertise in microservices and team collaboration.
+Ian,Brown,ian.brown@company.com,2024-01-15,60000,Human Resources,HR Specialist,with 6 years of experience specializing in Recruiter and building scalable systems.
+Eli,Ramirez,eli.ramirez@company.com,2022-11-20,65000,IT,Devops Engineer,"worked 8 years as a DevOps Engineer, managing teams and improving workflows."
+Waleed,Garcia,waleed.garcia@company.com,2024-01-15,60000,IT,Tech Lead,with 4 years of experience specializing in Project Manager and building scalable systems.
+Sophia,Hernandez,sophia.hernandez@company.com,2025-08-10,50000,IT,Devops Engineer,"more than 3 years in DevOps Engineer, skilled in modern frameworks and agile practices."
+Diana,Jones,diana.jones@company.com,2025-08-10,80000,Product Management,Tech Lead,"bringing 3 years as a Tech Lead, focusing on performance optimization and delivery."
+Zara,Torres,zara.torres@company.com,2023-05-12,85000,IT,data engineer,with 12 years of experience specializing in Data Scientist and building scalable systems.
+Diana,Wilson,diana.wilson@company.com,2023-05-12,85000,IT,Frontend Developer,having 5 years background in Frontend Developer with expertise in microservices and team collaboration.
+Alice,Smith,alice.smith@company.com,2022-11-20,65000,Product Management,Tech Lead,"over 7 years in team leading, contributing to cloud migration and system design."
+Oscar,Rodriguez,oscar.rodriguez@company.com,2025-08-10,120000,IT,Cloud Engineer,"bringing 17 years as a Cloud Engineer, focusing on performance optimization and delivery."
+,,,2025-08-10,,,,

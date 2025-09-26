@@ -1,0 +1,5 @@
+employee_id,first_name,last_name,email,hire_date,salary,role,departments
+1,Alice,Johnson,alice@company.com,2023-05-12,85000,2,1
+2,Bob,Smith,bob@company.com,2022-11-20,65000,2,3
+3,Carol,Davis,carol@company.com,2024-01-15,60000,3,1
+4,Davis,shawah,yosef@gmail.com,12/2/12,1231,,
