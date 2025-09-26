@@ -109,7 +109,35 @@ class SidebarPage(BasePage):
         self.click_employees_table()
         return self
     
+    def click_company_x_base(self):
+        """Click the company-x base in the sidebar (by data-testid)"""
+        self.log_action("Clicking company-x base in sidebar")
+        base_btn = self.wait.until(EC.element_to_be_clickable((By.CSS_SELECTOR, '[data-testid="nc-sidebar-base-title-company-x"]')))
+        base_btn.click()
+        self.log_success("Clicked company-x base")
+        return self
+
+    def click_duplicate_base(self):
+        """Click the Duplicate button for company-x base using data-testid on the <li>."""
+        self.log_action("Clicking Duplicate button for company-x base")
+        duplicate_btn = self.wait.until(
+            EC.element_to_be_clickable((By.CSS_SELECTOR, "li[data-testid='nc-sidebar-base-duplicate']"))
+        )
+        duplicate_btn.click()
+        self.log_success("Clicked Duplicate button")
+        return self
   
+    def click_duplicate_base_button(self):
+        """Click the 'Duplicate Base' button in the modal/dialog after clicking Duplicate."""
+        self.log_action("Clicking 'Duplicate Base' button in modal")
+        # Try to find a button with text 'Duplicate Base' (adjust selector if needed)
+        duplicate_base_btn = self.wait.until(
+            EC.element_to_be_clickable((By.XPATH, "//button[contains(., 'Duplicate Base') or .//*[contains(text(), 'Duplicate Base')]]"))
+        )
+        duplicate_base_btn.click()
+        self.log_success("Clicked 'Duplicate Base' button")
+        return self
+    
     
     def wait_for_sidebar_load(self):
         """Wait for sidebar to load completely"""
